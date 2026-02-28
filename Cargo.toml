@@ -1,0 +1,16 @@
+[package]
+name = "ReadmeGen4"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clipboard = "0.5"
+winapi = { version = "0.3", features = ["winuser", "shellapi", "shlobj", "errhandlingapi", "handleapi", "fileapi", "processthreadsapi", "commdlg", "winbase", "securitybaseapi"] }
+kernel32-sys = "0.2"
+winreg = "0.10"
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "link-arg=/SUBSYSTEM:WINDOWS", "-C", "link-arg=/ENTRY:mainCRTStartup"]
+
+[target.i686-pc-windows-msvc]
+rustflags = ["-C", "link-arg=/SUBSYSTEM:WINDOWS", "-C", "link-arg=/ENTRY:mainCRTStartup"]
